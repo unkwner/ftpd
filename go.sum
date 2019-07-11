@@ -1,5 +1,7 @@
 gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8 h1:dvw8cqH+NbkiR0ikE3NSZpRKyBL9fOPuG9h4lKKDJ30=
 gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8/go.mod h1:TdnYhl3DGy5KS7bkOmfQTmDpHi2jhNWbEWW6yvWe8V8=
+gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c h1:PZpmF+sly/Uasc6e+JsbuJb6lFOkv1HnXOKekPnNW14=
+gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c/go.mod h1:MRIEZqzha2uKixiEk+D1qxh6utiACnnYRC9yRAbD/Vw=
 gitea.com/lunny/log v0.0.0-20190322053110-01b5df579c4e h1:r1en/D7xJmcY24VkHkjkcJFa+7ZWubVWPBrvsHkmHxk=
 gitea.com/lunny/log v0.0.0-20190322053110-01b5df579c4e/go.mod h1:uJEsN4LQpeGYRCjuPXPZBClU7N5pWzGuyF4uqLpE/e0=
 gitea.com/lunny/tango v0.6.0 h1:Z9wX9fq5e2y9Da+cmlFpE3aAo1+GfTuhYIPPYdCD6kM=
@@ -27,8 +29,6 @@ github.com/go-xweb/uuid v0.0.0-20140604020037-d7dce341f851 h1:D46USD6oGNWzoJ/h5C
 github.com/go-xweb/uuid v0.0.0-20140604020037-d7dce341f851/go.mod h1:OmDEC58ZYO1Esk+Uy32SB6LWof9lyROl7q76dBFOCWw=
 github.com/goftp/file-driver v0.0.0-20180502053751-5d604a0fc0c9 h1:cC0Hbb+18DJ4i6ybqDybvj4wdIDS4vnD0QEci98PgM8=
 github.com/goftp/file-driver v0.0.0-20180502053751-5d604a0fc0c9/go.mod h1:GpOj6zuVBG3Inr9qjEnuVTgBlk2lZ1S9DcoFiXWyKss=
-github.com/goftp/leveldb-perm v0.0.0-20140908150551-14a86d5b37d0 h1:HuXHuczHc0u/YCXZ7xW1seBBcq7c82SR5OfAMzA3k7w=
-github.com/goftp/leveldb-perm v0.0.0-20140908150551-14a86d5b37d0/go.mod h1:0maf4F9sX/oVG3FKFDuU9JJnUO2iYrUaCEYCVhlMcmY=
 github.com/goftp/qiniu-driver v0.0.0-20160416132846-92c10cf5eb34 h1:GzJDmpB5h77oaRj2XgauYwCaVGL85Hfy2/BaGOs+GsY=
 github.com/goftp/qiniu-driver v0.0.0-20160416132846-92c10cf5eb34/go.mod h1:AfBazSSpbPNExl/BwyyBz0N7dZeMrfdqe1mzQ5YGQHA=
 github.com/goftp/server v0.0.0-20190304020633-eabccc535b5a h1:XTJuuzIub3zu2FgPqdFM9XFYYisXWu2hN/rFwayAIcY=

@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8
+	gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c
 	gitea.com/lunny/tango v0.6.0
 	gitea.com/tango/binding v0.0.0-20190606022902-f7676e2641fd
 	gitea.com/tango/flash v0.0.0-20190606021323-2b17fd0aed7c
@@ -12,7 +13,6 @@ require (
 	gitea.com/tango/xsrf v0.0.0-20190606015726-fb1b2fb84238
 	github.com/Unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
 	github.com/goftp/file-driver v0.0.0-20180502053751-5d604a0fc0c9
-	github.com/goftp/leveldb-perm v0.0.0-20140908150551-14a86d5b37d0
 	github.com/goftp/qiniu-driver v0.0.0-20160416132846-92c10cf5eb34
 	github.com/goftp/server v0.0.0-20190304020633-eabccc535b5a
 	github.com/lunny/log v0.0.0-20160921050905-7887c61bf0de

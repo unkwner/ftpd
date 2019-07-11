@@ -9,9 +9,9 @@ import (
 	"goftp.io/ftpd/web"
 
 	ldbauth "gitea.com/goftp/leveldb-auth"
+	ldbperm "gitea.com/goftp/leveldb-perm"
 	"github.com/Unknwon/goconfig"
 	filedriver "github.com/goftp/file-driver"
-	ldbperm "github.com/goftp/leveldb-perm"
 	qiniudriver "github.com/goftp/qiniu-driver"
 	"github.com/goftp/server"
 	"github.com/lunny/log"
