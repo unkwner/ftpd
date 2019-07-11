@@ -1,3 +1,5 @@
+gitea.com/goftp/file-driver v0.0.0-20190711093145-380b52ab0839 h1:cxS2JogmBM0nQGBwAN0UNNPE7tmCodZQJDa5Pgsbk6M=
+gitea.com/goftp/file-driver v0.0.0-20190711093145-380b52ab0839/go.mod h1:KyvK5rsqMeBnhsdNAB41B0p4w+LL6DrjAxFYmMIqpLI=
 gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8 h1:dvw8cqH+NbkiR0ikE3NSZpRKyBL9fOPuG9h4lKKDJ30=
 gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8/go.mod h1:TdnYhl3DGy5KS7bkOmfQTmDpHi2jhNWbEWW6yvWe8V8=
 gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c h1:PZpmF+sly/Uasc6e+JsbuJb6lFOkv1HnXOKekPnNW14=
