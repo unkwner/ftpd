@@ -4,12 +4,12 @@ import (
 	"io"
 	"net/url"
 
-	"github.com/lunny/tango"
-	"github.com/tango-contrib/binding"
-	"github.com/tango-contrib/flash"
-	"github.com/tango-contrib/renders"
-	"github.com/tango-contrib/session"
-	"github.com/tango-contrib/xsrf"
+	"gitea.com/lunny/tango"
+	"gitea.com/tango/binding"
+	"gitea.com/tango/flash"
+	"gitea.com/tango/renders"
+	"gitea.com/tango/session"
+	"gitea.com/tango/xsrf"
 )
 
 var _ auther = new(BaseAction)

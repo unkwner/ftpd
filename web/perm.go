@@ -5,8 +5,8 @@ import (
 	"os"
 	"path"
 
+	"gitea.com/tango/renders"
 	"github.com/goftp/server"
-	"github.com/tango-contrib/renders"
 )
 
 func hasPerm(mode os.FileMode, idx int, rOrW string) bool {

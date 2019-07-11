@@ -4,11 +4,11 @@
 
 这是一个基于 [github.com/goftp/server](http://github.com/goftp/server) 编写的Ftp服务器程序。
 
-文档可以通过 [godoc](http://godoc.org/github.com/goftp/ftpd) 获取。
+文档可以通过 [godoc](http://godoc.org/goftp.io/ftpd) 获取。
 
 ## 安装
 
-    go get github.com/goftp/ftpd
+    go get goftp.io/ftpd
 
 然后运行
 
@@ -21,4 +21,4 @@
     username: admin
     password: 123456
 
-如需要进一步修改，可以拷贝config.ini文件到ftpd目录下，然后修改其中的配置
+如需要进一步修改，可以拷贝 config.ini 文件到 ftpd 目录下，然后修改其中的配置

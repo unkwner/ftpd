@@ -3,14 +3,14 @@ package web
 import (
 	"time"
 
+	"gitea.com/lunny/tango"
+	"gitea.com/tango/binding"
+	"gitea.com/tango/flash"
+	"gitea.com/tango/renders"
+	"gitea.com/tango/session"
+	"gitea.com/tango/xsrf"
 	"github.com/goftp/server"
-	"github.com/lunny/tango"
 	"github.com/syndtr/goleveldb/leveldb"
-	"github.com/tango-contrib/binding"
-	"github.com/tango-contrib/flash"
-	"github.com/tango-contrib/renders"
-	"github.com/tango-contrib/session"
-	"github.com/tango-contrib/xsrf"
 )
 
 const (

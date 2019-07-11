@@ -4,11 +4,11 @@
 
 A FTP server based on [github.com/goftp/server](http://github.com/goftp/server).
 
-Full documentation for the package is available on [godoc](http://godoc.org/github.com/goftp/ftpd)
+Full documentation for the package is available on [godoc](http://godoc.org/goftp.io/ftpd)
 
 ## Installation
 
-    go get github.com/goftp/ftpd
+    go get goftp.io/ftpd
 
 Then run it:
 

@@ -6,12 +6,13 @@ import (
 	"os"
 	"path/filepath"
 
+	"goftp.io/ftpd/web"
+
+	ldbauth "gitea.com/goftp/leveldb-auth"
 	"github.com/Unknwon/goconfig"
-	"github.com/goftp/file-driver"
-	"github.com/goftp/ftpd/web"
-	"github.com/goftp/leveldb-auth"
-	"github.com/goftp/leveldb-perm"
-	"github.com/goftp/qiniu-driver"
+	filedriver "github.com/goftp/file-driver"
+	ldbperm "github.com/goftp/leveldb-perm"
+	qiniudriver "github.com/goftp/qiniu-driver"
 	"github.com/goftp/server"
 	"github.com/lunny/log"
 	"github.com/syndtr/goleveldb/leveldb"

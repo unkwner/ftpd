@@ -1,8 +1,8 @@
 package web
 
 import (
-	"github.com/tango-contrib/renders"
-	"github.com/tango-contrib/xsrf"
+	"gitea.com/tango/renders"
+	"gitea.com/tango/xsrf"
 )
 
 type GroupBaseAction struct {
