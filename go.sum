@@ -33,8 +33,6 @@ github.com/go-xweb/uuid v0.0.0-20140604020037-d7dce341f851 h1:D46USD6oGNWzoJ/h5C
 github.com/go-xweb/uuid v0.0.0-20140604020037-d7dce341f851/go.mod h1:OmDEC58ZYO1Esk+Uy32SB6LWof9lyROl7q76dBFOCWw=
 github.com/goftp/file-driver v0.0.0-20180502053751-5d604a0fc0c9 h1:cC0Hbb+18DJ4i6ybqDybvj4wdIDS4vnD0QEci98PgM8=
 github.com/goftp/file-driver v0.0.0-20180502053751-5d604a0fc0c9/go.mod h1:GpOj6zuVBG3Inr9qjEnuVTgBlk2lZ1S9DcoFiXWyKss=
-github.com/goftp/qiniu-driver v0.0.0-20160416132846-92c10cf5eb34 h1:GzJDmpB5h77oaRj2XgauYwCaVGL85Hfy2/BaGOs+GsY=
-github.com/goftp/qiniu-driver v0.0.0-20160416132846-92c10cf5eb34/go.mod h1:AfBazSSpbPNExl/BwyyBz0N7dZeMrfdqe1mzQ5YGQHA=
 github.com/goftp/server v0.0.0-20190304020633-eabccc535b5a h1:XTJuuzIub3zu2FgPqdFM9XFYYisXWu2hN/rFwayAIcY=
 github.com/goftp/server v0.0.0-20190304020633-eabccc535b5a/go.mod h1:k/SS6VWkxY7dHPhoMQ8IdRu8L4lQtmGbhyXGg+vCnXE=
 github.com/golang/protobuf v1.2.0 h1:P3YflyNX/ehuJFLhxviNdFxQPkGK5cDcApsge1SqnvM=
