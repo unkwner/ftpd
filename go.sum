@@ -4,6 +4,8 @@ gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8 h1:dvw8cqH+NbkiR
 gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8/go.mod h1:TdnYhl3DGy5KS7bkOmfQTmDpHi2jhNWbEWW6yvWe8V8=
 gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c h1:PZpmF+sly/Uasc6e+JsbuJb6lFOkv1HnXOKekPnNW14=
 gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c/go.mod h1:MRIEZqzha2uKixiEk+D1qxh6utiACnnYRC9yRAbD/Vw=
+gitea.com/goftp/qiniu-driver v0.0.0-20160416132846-92c10cf5eb34 h1:AGpo7XM2rcEIDoUfyWnyhEcPZJu5B8VUyYXKyUMBHyw=
+gitea.com/goftp/qiniu-driver v0.0.0-20160416132846-92c10cf5eb34/go.mod h1:eHzmuTllUliDQ943eQKLHD0L8Eaa+LtQQ0RaWD/g5zs=
 gitea.com/lunny/log v0.0.0-20190322053110-01b5df579c4e h1:r1en/D7xJmcY24VkHkjkcJFa+7ZWubVWPBrvsHkmHxk=
 gitea.com/lunny/log v0.0.0-20190322053110-01b5df579c4e/go.mod h1:uJEsN4LQpeGYRCjuPXPZBClU7N5pWzGuyF4uqLpE/e0=
 gitea.com/lunny/tango v0.6.0 h1:Z9wX9fq5e2y9Da+cmlFpE3aAo1+GfTuhYIPPYdCD6kM=
