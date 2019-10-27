@@ -1,4 +1,4 @@
-# gitea.com/goftp/file-driver v0.0.0-20190712091345-f79c2ed973f8
+# gitea.com/goftp/file-driver v0.0.0-20190812052443-efcdcba68b34
 gitea.com/goftp/file-driver
 # gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8
 gitea.com/goftp/leveldb-auth
@@ -8,13 +8,13 @@ gitea.com/goftp/leveldb-perm
 gitea.com/goftp/qiniu-driver
 # gitea.com/lunny/log v0.0.0-20190322053110-01b5df579c4e
 gitea.com/lunny/log
-# gitea.com/lunny/tango v0.6.0
+# gitea.com/lunny/tango v0.6.1
 gitea.com/lunny/tango
 # gitea.com/tango/binding v0.0.0-20190606022902-f7676e2641fd
 gitea.com/tango/binding
 # gitea.com/tango/flash v0.0.0-20190606021323-2b17fd0aed7c
 gitea.com/tango/flash
-# gitea.com/tango/renders v0.0.0-20190606020507-5dfc5b32c70d
+# gitea.com/tango/renders v0.0.0-20191027160057-78fc56203eb4
 gitea.com/tango/renders
 # gitea.com/tango/session v0.0.0-20190606020146-89f560e05167
 gitea.com/tango/session
@@ -61,5 +61,5 @@ github.com/syndtr/goleveldb/leveldb/storage
 github.com/syndtr/goleveldb/leveldb/table
 # github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
 github.com/unknwon/goconfig
-# goftp.io/server v0.0.0-20190812034929-9b3874d17690
+# goftp.io/server v0.0.0-20190812052725-72a57b186803
 goftp.io/server

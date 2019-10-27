@@ -1,5 +1,7 @@
 gitea.com/goftp/file-driver v0.0.0-20190712091345-f79c2ed973f8 h1:uCOouUDYTyK+Zz86dnkvDBUKnbqfqA/Fk/hxp5sXWv8=
 gitea.com/goftp/file-driver v0.0.0-20190712091345-f79c2ed973f8/go.mod h1:ghdogu0Da3rwYCSJ20JPgTiMcDpzeRbzvuFIOOW3G7w=
+gitea.com/goftp/file-driver v0.0.0-20190812052443-efcdcba68b34 h1:3wshUWDKHcy8hrNafCS4rtuAdON2KYsuznc05zdHTrQ=
+gitea.com/goftp/file-driver v0.0.0-20190812052443-efcdcba68b34/go.mod h1:6+f1gclV97PmaVmE4YJbH3KIKnl+r3/HWR0zD/z1CG4=
 gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8 h1:dvw8cqH+NbkiR0ikE3NSZpRKyBL9fOPuG9h4lKKDJ30=
 gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8/go.mod h1:TdnYhl3DGy5KS7bkOmfQTmDpHi2jhNWbEWW6yvWe8V8=
 gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c h1:PZpmF+sly/Uasc6e+JsbuJb6lFOkv1HnXOKekPnNW14=
@@ -10,12 +12,14 @@ gitea.com/lunny/log v0.0.0-20190322053110-01b5df579c4e h1:r1en/D7xJmcY24VkHkjkcJ
 gitea.com/lunny/log v0.0.0-20190322053110-01b5df579c4e/go.mod h1:uJEsN4LQpeGYRCjuPXPZBClU7N5pWzGuyF4uqLpE/e0=
 gitea.com/lunny/tango v0.6.0 h1:Z9wX9fq5e2y9Da+cmlFpE3aAo1+GfTuhYIPPYdCD6kM=
 gitea.com/lunny/tango v0.6.0/go.mod h1:ebPnYxaYz9qzByTh3A7604q3tcj0QtATtdwvsAafswU=
+gitea.com/lunny/tango v0.6.1 h1:/Fa0TZ5BY6gjWAgo0LzA0tdY8Az/fG6/oTTbFkpmxt0=
+gitea.com/lunny/tango v0.6.1/go.mod h1:ebPnYxaYz9qzByTh3A7604q3tcj0QtATtdwvsAafswU=
 gitea.com/tango/binding v0.0.0-20190606022902-f7676e2641fd h1:iEaCQ6nNs0XaTXFX90qs1KKrWqG2DO+7odSKSkdjc/M=
 gitea.com/tango/binding v0.0.0-20190606022902-f7676e2641fd/go.mod h1:38aj78Spy3l3omiX0ZyGy0i3sKfn8t4cKKCPns1QY+Q=
 gitea.com/tango/flash v0.0.0-20190606021323-2b17fd0aed7c h1:jZF70NbJrl4L55U5fWUGbj7bSZRvyhCoVd9uBbkMOUU=
 gitea.com/tango/flash v0.0.0-20190606021323-2b17fd0aed7c/go.mod h1:lIr+xj2ou5ahRFj4OqDCCLoIAXghZkbAduhlodGzZ3g=
-gitea.com/tango/renders v0.0.0-20190606020507-5dfc5b32c70d h1:cIeoeRYIYLKz89IUSwjZeXwL5eZSf27ZxVHcnzlr/b4=
-gitea.com/tango/renders v0.0.0-20190606020507-5dfc5b32c70d/go.mod h1:e7odZzG4f8KoxY7zoHmYJTvy7+tzHdOVspEubZ9ARc0=
+gitea.com/tango/renders v0.0.0-20191027160057-78fc56203eb4 h1:rWPrSM0YujcgDdsmTm0sZFH+01nNJ1DGBzkvPuzPFK8=
+gitea.com/tango/renders v0.0.0-20191027160057-78fc56203eb4/go.mod h1:e7odZzG4f8KoxY7zoHmYJTvy7+tzHdOVspEubZ9ARc0=
 gitea.com/tango/session v0.0.0-20190326075652-46aa689b6806/go.mod h1:hHF0HsgrATA68L0E0SSB1VQ3Z3JnQbaC9d2dOct2tS0=
 gitea.com/tango/session v0.0.0-20190606020146-89f560e05167 h1:NqgUqEIKZD7hm++1Y5IJ7yNwpqjSiROUCO3wZju49jo=
 gitea.com/tango/session v0.0.0-20190606020146-89f560e05167/go.mod h1:00EhoJmAqWFaTCwFu5/6WAu7iNCIAj95UbDLG7UDdKU=
@@ -93,6 +97,8 @@ goftp.io/ftpd v0.0.0-20180821024231-89d1eae9c018/go.mod h1:411wH3gYllZ079MJ6lG5U
 goftp.io/server v0.0.0-20190712054601-1149070ae46b/go.mod h1:xreggPYu7ZuNe9PfbxiQca7bYGwU44IvlCCg3KzWJtQ=
 goftp.io/server v0.0.0-20190812034929-9b3874d17690 h1:vHUbHALX1kwsxK6gFQeY19+10zk/pSABN/0vumWLCxQ=
 goftp.io/server v0.0.0-20190812034929-9b3874d17690/go.mod h1:99FISrRpwKfaL4Ey/dX8N48WToveng/s2OXR5sJ3cnc=
+goftp.io/server v0.0.0-20190812052725-72a57b186803 h1:I2IgXYRuOZ6LceE7VY6aSnYuUy6Wot3WFhqI5WsAHXQ=
+goftp.io/server v0.0.0-20190812052725-72a57b186803/go.mod h1:eDjthxa5tFTS2JVry2jHt1g9y3J0Vgu2Nd+lmNWev7Y=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/net v0.0.0-20180906233101-161cd47e91fd/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
 golang.org/x/net v0.0.0-20190311183353-d8887717615a h1:oWX7TPOiFAMXLq8o0ikBYfCJVlRHBcsciT5bXOrH628=
