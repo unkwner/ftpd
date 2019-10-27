@@ -13,9 +13,9 @@ import (
 	ldbperm "gitea.com/goftp/leveldb-perm"
 	qiniudriver "gitea.com/goftp/qiniu-driver"
 	"github.com/Unknwon/goconfig"
-	"github.com/goftp/server"
 	"github.com/lunny/log"
 	"github.com/syndtr/goleveldb/leveldb"
+	"goftp.io/server"
 )
 
 var (

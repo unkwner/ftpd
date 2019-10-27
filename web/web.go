@@ -9,8 +9,8 @@ import (
 	"gitea.com/tango/renders"
 	"gitea.com/tango/session"
 	"gitea.com/tango/xsrf"
-	"github.com/goftp/server"
 	"github.com/syndtr/goleveldb/leveldb"
+	"goftp.io/server"
 )
 
 const (
