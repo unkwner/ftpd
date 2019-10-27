@@ -7,4 +7,31 @@ steps:
   environment:
     GOPROXY: https://goproxy.cn
   commands:
-  - go test
+  - go vet ./...
+  - go test -race
+
+- name: release_build
+  pull: always
+  image: golang:1.12
+  commands:
+    - go generate ./...
+    - GOOS=darwin GOARCH=amd64 go build -tags=bindata -mod=vendor -o dist/ftpd-${DRONE_TAG}-darwin-10.6-amd64
+    - GOOS=linux GOARCH=amd64 go build -tags=bindata -mod=vendor -o dist/ftpd-${DRONE_TAG}-linux-amd64
+    - GOOS=windows GOARCH=amd64 go build -tags=bindata -mod=vendor -o dist/ftpd-${DRONE_TAG}-windows-amd64.exe
+  environment:
+    GO111MODULE: on
+  volumes:
+    - name: gopath
+      path: /go
+  when:
+    event: tag
+
+- name: gitea_release
+  image: plugins/gitea-release
+  settings:
+    api_key:
+      from_secret: gitea_token
+    base_url: https://gitea.com
+    files: dist/*
+  when:
+    event: tag

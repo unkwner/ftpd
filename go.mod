@@ -13,8 +13,10 @@ require (
 	gitea.com/tango/renders v0.0.0-20190606020507-5dfc5b32c70d
 	gitea.com/tango/session v0.0.0-20190606020146-89f560e05167
 	gitea.com/tango/xsrf v0.0.0-20190606015726-fb1b2fb84238
-	github.com/Unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
 	github.com/lunny/log v0.0.0-20160921050905-7887c61bf0de
+	github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749 // indirect
+	github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd
 	github.com/syndtr/goleveldb v1.0.0
+	github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
 	goftp.io/server v0.0.0-20190812034929-9b3874d17690
 )

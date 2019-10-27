@@ -2,11 +2,22 @@
 
 [中文](README_CN.md)
 
-A FTP server based on [github.com/goftp/server](http://github.com/goftp/server).
+A FTP server based on [gitea.com/goftp/server](http://gitea.com/goftp/server).
 
 Full documentation for the package is available on [godoc](http://godoc.org/goftp.io/ftpd)
 
-## Installation
+# Installation
+
+## From binary releases
+
+Download the binaries from [https://gitea.com/goftp/ftpd/releases](https://gitea.com/goftp/ftpd/releases).
+
+You can also build the binary yourself. After you clone the repository,
+
+    go generate ./...
+    go build -tags=bindata -mod=vendor
+
+## From Source
 
     go get goftp.io/ftpd
 

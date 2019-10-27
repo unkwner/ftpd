@@ -2,11 +2,22 @@
 
 [English](README.md)
 
-这是一个基于 [github.com/goftp/server](http://github.com/goftp/server) 编写的Ftp服务器程序。
+这是一个基于 [gitea.com/goftp/server](http://gitea.com/goftp/server) 编写的Ftp服务器程序。
 
 文档可以通过 [godoc](http://godoc.org/goftp.io/ftpd) 获取。
 
-## 安装
+# 安装
+
+## 二进制安装
+
+从 [https://gitea.com/goftp/ftpd/releases](https://gitea.com/goftp/ftpd/releases) 下载二进制程序。
+
+你也可以在克隆此仓库后，自己编译二进制程序：
+
+    go generate ./...
+    go build -tags=bindata -mod=vendor
+
+## 源代码安装
 
     go get goftp.io/ftpd
 

@@ -1,0 +1,65 @@
+# gitea.com/goftp/file-driver v0.0.0-20190712091345-f79c2ed973f8
+gitea.com/goftp/file-driver
+# gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8
+gitea.com/goftp/leveldb-auth
+# gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c
+gitea.com/goftp/leveldb-perm
+# gitea.com/goftp/qiniu-driver v0.0.0-20191027083326-6e505f23c4f0
+gitea.com/goftp/qiniu-driver
+# gitea.com/lunny/log v0.0.0-20190322053110-01b5df579c4e
+gitea.com/lunny/log
+# gitea.com/lunny/tango v0.6.0
+gitea.com/lunny/tango
+# gitea.com/tango/binding v0.0.0-20190606022902-f7676e2641fd
+gitea.com/tango/binding
+# gitea.com/tango/flash v0.0.0-20190606021323-2b17fd0aed7c
+gitea.com/tango/flash
+# gitea.com/tango/renders v0.0.0-20190606020507-5dfc5b32c70d
+gitea.com/tango/renders
+# gitea.com/tango/session v0.0.0-20190606020146-89f560e05167
+gitea.com/tango/session
+# gitea.com/tango/xsrf v0.0.0-20190606015726-fb1b2fb84238
+gitea.com/tango/xsrf
+# github.com/Unknwon/com v0.0.0-20190321035513-0fed4efef755
+github.com/Unknwon/com
+# github.com/go-xweb/uuid v0.0.0-20140604020037-d7dce341f851
+github.com/go-xweb/uuid
+# github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db
+github.com/golang/snappy
+# github.com/lunny/log v0.0.0-20160921050905-7887c61bf0de
+github.com/lunny/log
+# github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c
+github.com/oxtoacart/bpool
+# github.com/qiniu/api.v6 v6.0.9+incompatible
+github.com/qiniu/api.v6/auth/digest
+github.com/qiniu/api.v6/conf
+github.com/qiniu/api.v6/io
+github.com/qiniu/api.v6/rs
+github.com/qiniu/api.v6/rsf
+github.com/qiniu/api.v6/url
+# github.com/qiniu/bytes v0.0.0-20140728010635-4887e7b2bde3
+github.com/qiniu/bytes/seekable
+github.com/qiniu/bytes
+# github.com/qiniu/rpc v0.0.0-20140728010754-30c22466d920
+github.com/qiniu/rpc
+# github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749
+github.com/shurcooL/httpfs/vfsutil
+# github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd
+github.com/shurcooL/vfsgen
+# github.com/syndtr/goleveldb v1.0.0
+github.com/syndtr/goleveldb/leveldb
+github.com/syndtr/goleveldb/leveldb/util
+github.com/syndtr/goleveldb/leveldb/cache
+github.com/syndtr/goleveldb/leveldb/comparer
+github.com/syndtr/goleveldb/leveldb/errors
+github.com/syndtr/goleveldb/leveldb/filter
+github.com/syndtr/goleveldb/leveldb/iterator
+github.com/syndtr/goleveldb/leveldb/journal
+github.com/syndtr/goleveldb/leveldb/memdb
+github.com/syndtr/goleveldb/leveldb/opt
+github.com/syndtr/goleveldb/leveldb/storage
+github.com/syndtr/goleveldb/leveldb/table
+# github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
+github.com/unknwon/goconfig
+# goftp.io/server v0.0.0-20190812034929-9b3874d17690
+goftp.io/server

@@ -23,8 +23,6 @@ gitea.com/tango/xsrf v0.0.0-20190606015726-fb1b2fb84238 h1:ti3ZmMFweqSwRCKbCVzza
 gitea.com/tango/xsrf v0.0.0-20190606015726-fb1b2fb84238/go.mod h1:TTynPmrkQOiNzSrbDsDEL273wUIvPC7d+sUweqVPOkI=
 github.com/Unknwon/com v0.0.0-20190321035513-0fed4efef755 h1:1B7wb36fHLSwZfHg6ngZhhtIEHQjiC5H4p7qQGBEffg=
 github.com/Unknwon/com v0.0.0-20190321035513-0fed4efef755/go.mod h1:voKvFVpXBJxdIPeqjoJuLK+UVcRlo/JLjeToGxPYu68=
-github.com/Unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e h1:ZaFHdRwv6wJQMYsg5qITIsqWRqZRvUETiq0xxrl+8fc=
-github.com/Unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e/go.mod h1:wngxua9XCNjvHjDiTiV26DaKDT+0c63QR6H5hjVUUxw=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/fsnotify/fsnotify v1.4.7 h1:IXs+QLmnXW2CcXuY+8Mzv/fWEsPGWxqefPtCP5CnV9I=
@@ -69,6 +67,10 @@ github.com/qiniu/bytes v0.0.0-20140728010635-4887e7b2bde3 h1:PXNXOJs716xnMtH6kMk
 github.com/qiniu/bytes v0.0.0-20140728010635-4887e7b2bde3/go.mod h1:5KFTwj5mNES3FmpAF+DEDuVolB/OVAUj3oNqPLriYbo=
 github.com/qiniu/rpc v0.0.0-20140728010754-30c22466d920 h1:G6C/49DiPwATK+4oBi6OCf14WzCwNMTC1s5Udov4dwQ=
 github.com/qiniu/rpc v0.0.0-20140728010754-30c22466d920/go.mod h1:vUC++Z6RsGp85+Oyiu1l5+mpao6xy/Vi1J/G1fKiwDk=
+github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749 h1:bUGsEnyNbVPw06Bs80sCeARAlK8lhwqGyi6UT8ymuGk=
+github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749/go.mod h1:ZY1cvUeJuFPAdZ/B6v7RHavJWZn2YPVFQ1OSXhCGOkg=
+github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd h1:ug7PpSOB5RBPK1Kg6qskGBoP3Vnj/aNYFTznWvlkGo0=
+github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd/go.mod h1:TrYk7fJVaAttu97ZZKrO9UbRa8izdowaMIZcxYMbVaw=
 github.com/smartystreets/assertions v0.0.0-20180927180507-b2de0cb4f26d/go.mod h1:OnSkiWE9lh6wB0YB77sQom3nweQdgAjqCqsofrRNTgc=
 github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 h1:Jpy1PXuP99tXNrhbq2BaPz9B+jNAvH1JPQQpG/9GCXY=
 github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304/go.mod h1:OnSkiWE9lh6wB0YB77sQom3nweQdgAjqCqsofrRNTgc=
@@ -85,6 +87,8 @@ github.com/tango-contrib/flash v0.0.0-20170619055053-40456640d164/go.mod h1:fjy8
 github.com/tango-contrib/renders v0.0.0-20170526074344-86dba79a0240/go.mod h1:4kuIhm8N9wR3cGUFszRJQAvBRUaA7mw001P9BHKh0/s=
 github.com/tango-contrib/session v0.0.0-20170526074221-3115f8ddf72d/go.mod h1:nAEED8H84/GpN5Ewf/dDJkOM7S0XWyxYAdwlkMTYe2w=
 github.com/tango-contrib/xsrf v0.0.0-20170526074244-3dbe17fdad36/go.mod h1:i/hS2Yy51czffHIDR+2DMtjCRKKTP8WuYa3XHsh98rQ=
+github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e h1:WIu9z0oMGXDY19FEawfE3gNMXbJ3n2KDRvTHBnkxjnM=
+github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e/go.mod h1:qu2ZQ/wcC/if2u32263HTVC39PeOQRSmidQk3DuDFQ8=
 goftp.io/ftpd v0.0.0-20180821024231-89d1eae9c018/go.mod h1:411wH3gYllZ079MJ6lG5UI++ERPF+VklHvGlMux980A=
 goftp.io/server v0.0.0-20190712054601-1149070ae46b/go.mod h1:xreggPYu7ZuNe9PfbxiQca7bYGwU44IvlCCg3KzWJtQ=
 goftp.io/server v0.0.0-20190812034929-9b3874d17690 h1:vHUbHALX1kwsxK6gFQeY19+10zk/pSABN/0vumWLCxQ=
@@ -100,6 +104,7 @@ golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a h1:1BGLXjeY4akVXGgbC9HugT3Jv
 golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/text v0.3.0 h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
+golang.org/x/tools v0.0.0-20190328211700-ab21143f2384 h1:TFlARGu6Czu1z7q93HTxcP1P+/ZFC/IKythI5RzrnRg=
 golang.org/x/tools v0.0.0-20190328211700-ab21143f2384/go.mod h1:LCzVGOaR6xXOjkQ3onu1FJEFr0SW1gC7cKk1uF8kGRs=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=

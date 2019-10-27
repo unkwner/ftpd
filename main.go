@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"path/filepath"
 
 	"goftp.io/ftpd/web"
 
@@ -12,63 +11,45 @@ import (
 	ldbauth "gitea.com/goftp/leveldb-auth"
 	ldbperm "gitea.com/goftp/leveldb-perm"
 	qiniudriver "gitea.com/goftp/qiniu-driver"
-	"github.com/Unknwon/goconfig"
 	"github.com/lunny/log"
+	_ "github.com/shurcooL/vfsgen"
 	"github.com/syndtr/goleveldb/leveldb"
 	"goftp.io/server"
 )
 
 var (
-	version = "v0.1.1104"
-)
-
-var (
-	cfg        *goconfig.ConfigFile
-	cfgPath    string
-	customPath string
+	version = "v0.2.1027"
+	cfgPath string
 )
 
 func main() {
-	flag.StringVar(&cfgPath, "config", "config.ini",
-		"config file path, default is config.ini and custom.ini")
+	flag.StringVar(&cfgPath, "config", "",
+		"config file path, default is config.ini")
 	flag.Parse()
 
-	if len(cfgPath) <= 0 {
-		cfgPath = "config.ini"
-		customPath = "custom.ini"
-	} else {
-		f, _ := filepath.Abs(cfgPath)
-		customPath = filepath.Join(filepath.Dir(f), "custom.ini")
-	}
-
-	var err error
-	cfg, err = goconfig.LoadConfigFile(cfgPath, customPath)
-	if err != nil {
+	if err := initConfig(); err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	log.Info("Loaded config files:", cfgPath, customPath)
-
-	port, _ := cfg.Int("server", "port")
 	db, err := leveldb.OpenFile("./authperm.db", nil)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	var auth = &ldbauth.LDBAuth{db}
+	var auth = &ldbauth.LDBAuth{
+		DB: db,
+	}
 	var perm server.Perm
-	if cfg.MustValue("perm", "type") == "leveldb" {
+	if permType == "leveldb" {
 		perm = ldbperm.NewLDBPerm(db, "root", "root", os.ModePerm)
 	} else {
 		perm = server.NewSimplePerm("root", "root")
 	}
 
-	typ, _ := cfg.GetValue("driver", "type")
 	var factory server.DriverFactory
-	if typ == "file" {
-		rootPath, _ := cfg.GetValue("file", "rootpath")
+	if driverType == "file" {
 		_, err = os.Lstat(rootPath)
 		if os.IsNotExist(err) {
 			os.MkdirAll(rootPath, os.ModePerm)
@@ -77,46 +58,37 @@ func main() {
 			return
 		}
 		factory = &filedriver.FileDriverFactory{
-			rootPath,
-			perm,
+			RootPath: rootPath,
+			Perm:     perm,
 		}
-	} else if typ == "qiniu" {
-		accessKey, _ := cfg.GetValue("qiniu", "accessKey")
-		secretKey, _ := cfg.GetValue("qiniu", "secretKey")
-		bucket, _ := cfg.GetValue("qiniu", "bucket")
-		factory = qiniudriver.NewQiniuDriverFactory(accessKey,
-			secretKey, bucket)
+	} else if driverType == "qiniu" {
+		factory = qiniudriver.NewQiniuDriverFactory(qiniu.AccessKey,
+			qiniu.SecretKey, qiniu.Bucket)
 	} else {
-		log.Fatal("no driver type input")
+		fmt.Println("no driver type input")
+		return
 	}
 
 	// start web manage UI
-	useweb, _ := cfg.Bool("web", "enable")
-	if useweb {
+	if webCfg.Enabled {
 		web.DB = auth
 		web.Perm = perm
 		web.Factory = factory
-		weblisten, _ := cfg.GetValue("web", "listen")
-		admin, _ := cfg.GetValue("admin", "user")
-		pass, _ := cfg.GetValue("admin", "pass")
-		tls, _ := cfg.Bool("web", "tls")
-		certFile, _ := cfg.GetValue("web", "certFile")
-		keyFile, _ := cfg.GetValue("web", "keyFile")
 
-		go web.Web(weblisten, "static", "templates", admin, pass, tls, certFile, keyFile)
+		go web.Web(webCfg.Listen, "static", "templates", admin, pass,
+			webCfg.TLS, webCfg.CertFile, webCfg.KeyFile)
 	}
 
-	ftpName, _ := cfg.GetValue("server", "name")
 	opt := &server.ServerOpts{
-		Name:    ftpName,
+		Name:    serv.Name,
 		Factory: factory,
-		Port:    port,
+		Port:    serv.Port,
 		Auth:    auth,
 	}
 
-	opt.TLS = cfg.MustBool("server", "tls", false)
-	opt.KeyFile = cfg.MustValue("server", "key_file", "")
-	opt.CertFile = cfg.MustValue("server", "cert_file", "")
+	opt.TLS = serv.TLS
+	opt.KeyFile = serv.KeyFile
+	opt.CertFile = serv.CertFile
 	opt.ExplicitFTPS = opt.TLS
 
 	// start ftp server

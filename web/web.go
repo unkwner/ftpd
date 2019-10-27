@@ -3,6 +3,9 @@ package web
 import (
 	"time"
 
+	"goftp.io/ftpd/modules/public"
+	"goftp.io/ftpd/modules/templates"
+
 	"gitea.com/lunny/tango"
 	"gitea.com/tango/binding"
 	"gitea.com/tango/flash"
@@ -51,7 +54,7 @@ const (
 	timeout = time.Minute * 20
 )
 
-func Web(listen, static, templates, admin, pass string, tls bool, certFile, keyFile string) {
+func Web(listen, static, templatesDir, admin, pass string, tls bool, certFile, keyFile string) {
 	_, err := DB.GetUser(admin)
 	if err != nil {
 		if err == leveldb.ErrNotFound {
@@ -68,12 +71,11 @@ func Web(listen, static, templates, admin, pass string, tls bool, certFile, keyF
 		MaxAge: timeout,
 	})
 	t.Use(
-		tango.Static(tango.StaticOptions{
-			RootPath: static,
-		}),
+		public.Static(static),
 		renders.New(renders.Options{
-			Reload:    true, // if reload when template is changed
-			Directory: templates,
+			Reload:     true, // if reload when template is changed
+			Directory:  templatesDir,
+			FileSystem: templates.FileSystem(templatesDir),
 		}),
 		sess,
 		auth(),
