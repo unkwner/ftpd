@@ -1,0 +1,57 @@
+version: '2'
+
+env:
+  GO111MODULE: on
+  GOPROXY: https://goproxy.cn
+
+vars:
+  GIT_COMMIT:
+    sh: git describe --tags --always | sed 's/-/+/' | sed 's/^v//'
+
+tasks:
+  update:
+    cmds:
+      - go mod tidy
+      - go mod vendor
+  
+  fmt:
+    cmds:
+      - go fmt ./...
+
+  build:
+    cmds:
+      - go build -mod=vendor -ldflags="-s -w -X main.version={{.GIT_COMMIT}}"
+
+  test:
+    cmds:
+      - go vet -mod=vendor ./...
+      - go test -mod=vendor ./...
+
+  generate:
+    cmds:
+      - go generate -mod=vendor ./modules/...
+  
+  release:
+    deps: [generate]
+    cmds:
+      - go build -mod=vendor -tags 'bindata' -ldflags="-s -w -X main.version={{.GIT_COMMIT}}" -o ftpd-{{OS}}-{{ARCH}}{{exeExt}}
+
+  release-linux:
+    deps: [generate]
+    cmds:
+      - GOOS=linux GOARCH=amd64 go build -mod=vendor -tags 'bindata' -ldflags="-s -w -X main.version={{.GIT_COMMIT}}" -o ftpd-linux-amd64
+
+  release-windows:
+    deps: [generate]
+    cmds:
+      - GOOS=windows GOARCH=amd64 go build -mod=vendor -tags 'bindata' -ldflags="-s -w -X main.version={{.GIT_COMMIT}}" -o ftpd-windows-amd64.exe
+
+  release-docker:
+    deps: [release-linux]
+    cmds:
+      - docker build . -t ftpd
+
+  clean-docker:
+    cmds:
+      - docker ps -a -q -f status=exited | xargs docker rm
+      - docker images --no-trunc=true --filter dangling=true --quiet | xargs docker rmi

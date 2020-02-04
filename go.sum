@@ -16,6 +16,8 @@ gitea.com/lunny/tango v0.6.1 h1:/Fa0TZ5BY6gjWAgo0LzA0tdY8Az/fG6/oTTbFkpmxt0=
 gitea.com/lunny/tango v0.6.1/go.mod h1:ebPnYxaYz9qzByTh3A7604q3tcj0QtATtdwvsAafswU=
 gitea.com/tango/binding v0.0.0-20190606022902-f7676e2641fd h1:iEaCQ6nNs0XaTXFX90qs1KKrWqG2DO+7odSKSkdjc/M=
 gitea.com/tango/binding v0.0.0-20190606022902-f7676e2641fd/go.mod h1:38aj78Spy3l3omiX0ZyGy0i3sKfn8t4cKKCPns1QY+Q=
+gitea.com/tango/binding v0.0.0-20200204091933-f90d5bac28d2 h1:ABHaqFPVfMI6O2mdel6hf2L3Lxq+YAgpApfV9uw/PN0=
+gitea.com/tango/binding v0.0.0-20200204091933-f90d5bac28d2/go.mod h1:28Z1ZNEvQGvOy+i+MZNye6Utp3oPAVh9YqcUndCmOao=
 gitea.com/tango/flash v0.0.0-20190606021323-2b17fd0aed7c h1:jZF70NbJrl4L55U5fWUGbj7bSZRvyhCoVd9uBbkMOUU=
 gitea.com/tango/flash v0.0.0-20190606021323-2b17fd0aed7c/go.mod h1:lIr+xj2ou5ahRFj4OqDCCLoIAXghZkbAduhlodGzZ3g=
 gitea.com/tango/renders v0.0.0-20191027160057-78fc56203eb4 h1:rWPrSM0YujcgDdsmTm0sZFH+01nNJ1DGBzkvPuzPFK8=
@@ -91,6 +93,8 @@ github.com/tango-contrib/flash v0.0.0-20170619055053-40456640d164/go.mod h1:fjy8
 github.com/tango-contrib/renders v0.0.0-20170526074344-86dba79a0240/go.mod h1:4kuIhm8N9wR3cGUFszRJQAvBRUaA7mw001P9BHKh0/s=
 github.com/tango-contrib/session v0.0.0-20170526074221-3115f8ddf72d/go.mod h1:nAEED8H84/GpN5Ewf/dDJkOM7S0XWyxYAdwlkMTYe2w=
 github.com/tango-contrib/xsrf v0.0.0-20170526074244-3dbe17fdad36/go.mod h1:i/hS2Yy51czffHIDR+2DMtjCRKKTP8WuYa3XHsh98rQ=
+github.com/unknwon/com v1.0.1 h1:3d1LTxD+Lnf3soQiD4Cp/0BRB+Rsa/+RTvz8GMMzIXs=
+github.com/unknwon/com v1.0.1/go.mod h1:tOOxU81rwgoCLoOVVPHb6T/wt8HZygqH5id+GNnlCXM=
 github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e h1:WIu9z0oMGXDY19FEawfE3gNMXbJ3n2KDRvTHBnkxjnM=
 github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e/go.mod h1:qu2ZQ/wcC/if2u32263HTVC39PeOQRSmidQk3DuDFQ8=
 goftp.io/ftpd v0.0.0-20180821024231-89d1eae9c018/go.mod h1:411wH3gYllZ079MJ6lG5UI++ERPF+VklHvGlMux980A=

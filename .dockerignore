@@ -1,0 +1,14 @@
+bin/
+data/
+logs/
+ftpd
+bindata.go
+config.ini
+.DS_Store
+dist
+data.db
+doc/~*
+log.txt
+._*
+*.log
+logs/*.log*.gz

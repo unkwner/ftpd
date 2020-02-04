@@ -8,7 +8,7 @@ require (
 	gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c
 	gitea.com/goftp/qiniu-driver v0.0.0-20191027083326-6e505f23c4f0
 	gitea.com/lunny/tango v0.6.1
-	gitea.com/tango/binding v0.0.0-20190606022902-f7676e2641fd
+	gitea.com/tango/binding v0.0.0-20200204091933-f90d5bac28d2
 	gitea.com/tango/flash v0.0.0-20190606021323-2b17fd0aed7c
 	gitea.com/tango/renders v0.0.0-20191027160057-78fc56203eb4
 	gitea.com/tango/session v0.0.0-20190606020146-89f560e05167
