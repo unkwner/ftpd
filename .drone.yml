@@ -1,37 +1,100 @@
+---
 kind: pipeline
-name: default
+name: testing
 
 steps:
-- name: test
-  image: golang:1.12
-  environment:
-    GOPROXY: https://goproxy.cn
+- name: fetch-tags
+  pull: default
+  image: docker:git
   commands:
-  - go vet ./...
-  - go test -race
+    - git fetch --tags --force
+  when:
+    event:
+      exclude:
+        - pull_request
 
-- name: release_build
+- name: test
   pull: always
-  image: golang:1.12
+  image: golang:1.13
   commands:
-    - go generate ./...
-    - GOOS=darwin GOARCH=amd64 go build -tags=bindata -mod=vendor -o dist/ftpd-${DRONE_TAG}-darwin-10.6-amd64
-    - GOOS=linux GOARCH=amd64 go build -tags=bindata -mod=vendor -o dist/ftpd-${DRONE_TAG}-linux-amd64
-    - GOOS=windows GOARCH=amd64 go build -tags=bindata -mod=vendor -o dist/ftpd-${DRONE_TAG}-windows-amd64.exe
+  - export PATH=$PATH:/go:/srv/app/bin
+  - go vet -mod=vendor ./...
+  - go test -mod=vendor ./...
+  environment:
+    GOPATH: /srv/app
+  when:
+    event:
+    - push
+    - tag
+    - pull_request
+
+---
+kind: pipeline
+name: release-tag
+trigger:
+  event:
+    - tag
+depends_on:
+  - testing
+
+steps:
+- name: release-build
+  pull: always
+  image: golang:1.13
+  commands:
+  - go generate -mod=vendor ./modules/...
+  - GOOS=darwin GOARCH=amd64 go build -tags=bindata -mod=vendor -ldflags="-s -w -X 'main.version=${DRONE_TAG}'" -o dist/ftpd-${DRONE_TAG}-darwin-10.6-amd64
+  - GOOS=linux GOARCH=amd64 go build -tags=bindata -mod=vendor -ldflags="-s -w -X 'main.version=${DRONE_TAG}'" -o dist/ftpd-${DRONE_TAG}-linux-amd64
+  - GOOS=windows GOARCH=amd64 go build -tags=bindata -mod=vendor -ldflags="-s -w -X 'main.version=${DRONE_TAG}'" -o dist/ftpd-${DRONE_TAG}-windows-amd64.exe
   environment:
     GO111MODULE: on
-  volumes:
-    - name: gopath
-      path: /go
-  when:
-    event: tag
 
-- name: gitea_release
-  image: plugins/gitea-release
+- name: release-tag-gitea
+  pull: always
+  image: plugins/gitea-release:latest
   settings:
     api_key:
       from_secret: gitea_token
     base_url: https://gitea.com
     files: dist/*
+
+---
+kind: pipeline
+name: release-docker
+depends_on:
+  - testing
+
+trigger:
+  ref:
+  - refs/heads/master
+  - "refs/tags/**"
+  - "refs/pull/**"
+
+steps:
+- name: dryrun
+  pull: always
+  image: plugins/docker:linux-amd64
+  settings:
+    dry_run: true
+    repo: goftp/ftpd
+    tags: ${DRONE_TAG}
   when:
-    event: tag
+    event:
+      - pull_request
+
+- name: publish
+  pull: always
+  image: plugins/docker:linux-amd64
+  settings:
+    repo: goftp/ftpd
+    tags: ${DRONE_TAG}
+    password:
+      from_secret: docker_password
+    username:
+      from_secret: docker_username
+  environment:
+    VERSION: ${DRONE_TAG}
+  when:
+    event:
+      exclude:
+      - pull_request
