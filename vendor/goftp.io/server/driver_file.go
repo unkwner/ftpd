@@ -1,4 +1,8 @@
-package filedriver
+// Copyright 2020 The goftp Authors. All rights reserved.
+// Use of this source code is governed by a MIT-style
+// license that can be found in the LICENSE file.
+
+package server
 
 import (
 	"errors"
@@ -7,33 +11,11 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-
-	"goftp.io/server"
 )
 
 type FileDriver struct {
 	RootPath string
-	server.Perm
-}
-
-type FileInfo struct {
-	os.FileInfo
-
-	mode  os.FileMode
-	owner string
-	group string
-}
-
-func (f *FileInfo) Mode() os.FileMode {
-	return f.mode
-}
-
-func (f *FileInfo) Owner() string {
-	return f.owner
-}
-
-func (f *FileInfo) Group() string {
-	return f.group
+	Perm
 }
 
 func (driver *FileDriver) realPath(path string) string {
@@ -41,7 +23,7 @@ func (driver *FileDriver) realPath(path string) string {
 	return filepath.Join(append([]string{driver.RootPath}, paths...)...)
 }
 
-func (driver *FileDriver) Init(conn *server.Conn) {
+func (driver *FileDriver) Init(conn *Conn) {
 	//driver.conn = conn
 }
 
@@ -57,7 +39,7 @@ func (driver *FileDriver) ChangeDir(path string) error {
 	return errors.New("Not a directory")
 }
 
-func (driver *FileDriver) Stat(path string) (server.FileInfo, error) {
+func (driver *FileDriver) Stat(path string) (FileInfo, error) {
 	basepath := driver.realPath(path)
 	rPath, err := filepath.Abs(basepath)
 	if err != nil {
@@ -82,10 +64,10 @@ func (driver *FileDriver) Stat(path string) (server.FileInfo, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &FileInfo{f, mode, owner, group}, nil
+	return &fileInfo{f, mode, owner, group}, nil
 }
 
-func (driver *FileDriver) ListDir(path string, callback func(server.FileInfo) error) error {
+func (driver *FileDriver) ListDir(path string, callback func(FileInfo) error) error {
 	basepath := driver.realPath(path)
 	return filepath.Walk(basepath, func(f string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -108,7 +90,7 @@ func (driver *FileDriver) ListDir(path string, callback func(server.FileInfo) er
 			if err != nil {
 				return err
 			}
-			err = callback(&FileInfo{info, mode, owner, group})
+			err = callback(&fileInfo{info, mode, owner, group})
 			if err != nil {
 				return err
 			}
@@ -233,9 +215,9 @@ func (driver *FileDriver) PutFile(destPath string, data io.Reader, appendData bo
 
 type FileDriverFactory struct {
 	RootPath string
-	server.Perm
+	Perm
 }
 
-func (factory *FileDriverFactory) NewDriver() (server.Driver, error) {
+func (factory *FileDriverFactory) NewDriver() (Driver, error) {
 	return &FileDriver{factory.RootPath, factory.Perm}, nil
 }

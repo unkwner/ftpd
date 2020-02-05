@@ -7,7 +7,6 @@ import (
 
 	"goftp.io/ftpd/web"
 
-	filedriver "gitea.com/goftp/file-driver"
 	ldbauth "gitea.com/goftp/leveldb-auth"
 	ldbperm "gitea.com/goftp/leveldb-perm"
 	qiniudriver "gitea.com/goftp/qiniu-driver"
@@ -57,7 +56,7 @@ func main() {
 			fmt.Println(err)
 			return
 		}
-		factory = &filedriver.FileDriverFactory{
+		factory = &server.FileDriverFactory{
 			RootPath: rootPath,
 			Perm:     perm,
 		}

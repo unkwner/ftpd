@@ -1,5 +1,3 @@
-# gitea.com/goftp/file-driver v0.0.0-20190812052443-efcdcba68b34
-gitea.com/goftp/file-driver
 # gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8
 gitea.com/goftp/leveldb-auth
 # gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c
@@ -61,5 +59,5 @@ github.com/syndtr/goleveldb/leveldb/util
 github.com/unknwon/com
 # github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
 github.com/unknwon/goconfig
-# goftp.io/server v0.0.0-20190812052725-72a57b186803
+# goftp.io/server v0.3.2
 goftp.io/server

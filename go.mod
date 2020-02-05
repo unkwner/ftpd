@@ -3,7 +3,6 @@ module goftp.io/ftpd
 go 1.12
 
 require (
-	gitea.com/goftp/file-driver v0.0.0-20190812052443-efcdcba68b34
 	gitea.com/goftp/leveldb-auth v0.0.0-20190711092309-e8e3d5ad5ac8
 	gitea.com/goftp/leveldb-perm v0.0.0-20190711092750-00b79e6da99c
 	gitea.com/goftp/qiniu-driver v0.0.0-20191027083326-6e505f23c4f0
@@ -18,5 +17,5 @@ require (
 	github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd
 	github.com/syndtr/goleveldb v1.0.0
 	github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
-	goftp.io/server v0.0.0-20190812052725-72a57b186803
+	goftp.io/server v0.3.2
 )
