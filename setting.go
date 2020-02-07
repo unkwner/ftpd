@@ -20,6 +20,14 @@ var (
 		SecretKey string
 	}{}
 
+	minio = struct {
+		Endpoint  string
+		Bucket    string
+		AccessKey string
+		SecretKey string
+		UseSSL    bool
+	}{}
+
 	webCfg = struct {
 		Enabled  bool
 		Listen   string
@@ -106,6 +114,12 @@ func initConfig() error {
 	qiniu.AccessKey, _ = cfg.GetValue("qiniu", "accessKey")
 	qiniu.SecretKey, _ = cfg.GetValue("qiniu", "secretKey")
 	qiniu.Bucket, _ = cfg.GetValue("qiniu", "bucket")
+
+	minio.Endpoint, _ = cfg.GetValue("minio", "endpoint")
+	minio.AccessKey, _ = cfg.GetValue("minio", "accessKey")
+	minio.SecretKey, _ = cfg.GetValue("minio", "secretKey")
+	minio.Bucket, _ = cfg.GetValue("minio", "bucket")
+	minio.UseSSL = cfg.MustBool("minio", "use_ssl", false)
 
 	webCfg.Enabled = cfg.MustBool("web", "enable", webCfg.Enabled)
 	webCfg.Listen = cfg.MustValue("web", "listen", webCfg.Listen)

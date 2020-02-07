@@ -48,7 +48,8 @@ func main() {
 	}
 
 	var factory server.DriverFactory
-	if driverType == "file" {
+	switch driverType {
+	case "file":
 		_, err = os.Lstat(rootPath)
 		if os.IsNotExist(err) {
 			os.MkdirAll(rootPath, os.ModePerm)
@@ -60,10 +61,23 @@ func main() {
 			RootPath: rootPath,
 			Perm:     perm,
 		}
-	} else if driverType == "qiniu" {
-		factory = qiniudriver.NewQiniuDriverFactory(qiniu.AccessKey,
-			qiniu.SecretKey, qiniu.Bucket)
-	} else {
+	case "qiniu":
+		factory = qiniudriver.NewQiniuDriverFactory(
+			qiniu.AccessKey,
+			qiniu.SecretKey,
+			qiniu.Bucket,
+		)
+	case "minio":
+		factory = server.NewMinioDriverFactory(
+			minio.Endpoint,
+			minio.AccessKey,
+			minio.SecretKey,
+			"",
+			minio.Bucket,
+			minio.UseSSL,
+			perm,
+		)
+	default:
 		fmt.Println("no driver type input")
 		return
 	}

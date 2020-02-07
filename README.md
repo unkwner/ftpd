@@ -6,6 +6,13 @@ A FTP server based on [gitea.com/goftp/server](http://gitea.com/goftp/server).
 
 Full documentation for the package is available on [godoc](http://godoc.org/goftp.io/ftpd)
 
+# Features
+
+- Support file system as storage
+- Support minio as storage
+- Support qiniu as storage
+- Support web management UI
+
 # Installation
 
 ## From binary releases

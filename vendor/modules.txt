@@ -24,6 +24,17 @@ github.com/go-xweb/uuid
 github.com/golang/snappy
 # github.com/lunny/log v0.0.0-20160921050905-7887c61bf0de
 github.com/lunny/log
+# github.com/minio/minio-go/v6 v6.0.46
+github.com/minio/minio-go/v6
+github.com/minio/minio-go/v6/pkg/credentials
+github.com/minio/minio-go/v6/pkg/encrypt
+github.com/minio/minio-go/v6/pkg/s3signer
+github.com/minio/minio-go/v6/pkg/s3utils
+github.com/minio/minio-go/v6/pkg/set
+# github.com/minio/sha256-simd v0.1.1
+github.com/minio/sha256-simd
+# github.com/mitchellh/go-homedir v1.1.0
+github.com/mitchellh/go-homedir
 # github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c
 github.com/oxtoacart/bpool
 # github.com/qiniu/api.v6 v6.0.9+incompatible
@@ -59,5 +70,21 @@ github.com/syndtr/goleveldb/leveldb/util
 github.com/unknwon/com
 # github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
 github.com/unknwon/goconfig
-# goftp.io/server v0.3.2
+# goftp.io/server v0.3.3-0.20200206033707-57b389cc6571
 goftp.io/server
+# golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4
+golang.org/x/crypto/argon2
+golang.org/x/crypto/blake2b
+# golang.org/x/net v0.0.0-20190724013045-ca1201d0de80
+golang.org/x/net/http/httpguts
+golang.org/x/net/idna
+golang.org/x/net/publicsuffix
+# golang.org/x/sys v0.0.0-20190726091711-fc99dfbffb4e
+golang.org/x/sys/cpu
+# golang.org/x/text v0.3.2
+golang.org/x/text/secure/bidirule
+golang.org/x/text/transform
+golang.org/x/text/unicode/bidi
+golang.org/x/text/unicode/norm
+# gopkg.in/ini.v1 v1.42.0
+gopkg.in/ini.v1
