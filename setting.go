@@ -68,44 +68,32 @@ func exePath() (string, error) {
 }
 
 func initConfig() error {
-	var cfgFiles []string
-
-	if len(cfgPath) > 0 {
-		f, _ := filepath.Abs(cfgPath)
-		cfgFiles = append(cfgFiles, f)
-	} else {
+	var configFile = cfgPath
+	if len(configFile) == 0 {
 		dir, err := exePath()
 		if err != nil {
 			return err
 		}
 
-		cfgPath = filepath.Join(filepath.Dir(dir), "config.ini")
-		_, err = os.Stat(cfgPath)
+		defaultCfgPath := filepath.Join(filepath.Dir(dir), "config.ini")
+		_, err = os.Stat(defaultCfgPath)
 		if err != nil && !os.IsNotExist(err) {
 			return err
 		} else if err == nil {
-			cfgFiles = append(cfgFiles, cfgPath)
-		}
-
-		customPath := filepath.Join(filepath.Dir(dir), "custom.ini")
-		_, err = os.Stat(customPath)
-		if err != nil && !os.IsNotExist(err) {
-			return err
-		} else if err == nil {
-			cfgFiles = append(cfgFiles, customPath)
+			configFile = defaultCfgPath
 		}
 	}
 
-	if len(cfgFiles) == 0 {
+	if len(configFile) == 0 {
 		return nil
 	}
 
-	cfg, err := goconfig.LoadConfigFile(cfgFiles[0], cfgFiles[1:]...)
+	cfg, err := goconfig.LoadConfigFile(configFile)
 	if err != nil {
 		return err
 	}
 
-	log.Info("Loaded config files:", cfgFiles)
+	log.Info("Loaded config file:", configFile)
 
 	permType = cfg.MustValue("perm", "type", permType)
 	driverType = cfg.MustValue("driver", "type", driverType)

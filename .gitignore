@@ -3,3 +3,4 @@ custom.ini
 ftpd
 .history
 bindata.go
+config.ini
