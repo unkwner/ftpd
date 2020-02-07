@@ -17,7 +17,7 @@ import (
 )
 
 var (
-	version = "v0.2.1027"
+	version = "v0.3.0"
 	cfgPath string
 )
 
