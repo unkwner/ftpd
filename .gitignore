@@ -4,3 +4,4 @@ ftpd
 .history
 bindata.go
 config.ini
+.vscode

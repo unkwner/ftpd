@@ -17,5 +17,5 @@ require (
 	github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd
 	github.com/syndtr/goleveldb v1.0.0
 	github.com/unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
-	goftp.io/server v0.3.3-0.20200206033707-57b389cc6571
+	goftp.io/server v0.3.5-0.20200428022247-5cd49dc54bdb
 )
