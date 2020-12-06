@@ -13,7 +13,7 @@ import (
 	"gitea.com/tango/session"
 	"gitea.com/tango/xsrf"
 	"github.com/syndtr/goleveldb/leveldb"
-	"goftp.io/server"
+	"goftp.io/server/v2"
 )
 
 const (
@@ -26,7 +26,7 @@ const (
 var (
 	DB        UserDB
 	Perm      server.Perm
-	Factory   server.DriverFactory
+	Driver server.Driver
 	adminUser string
 )
 

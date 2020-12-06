@@ -7,13 +7,14 @@ import (
 
 	"goftp.io/ftpd/web"
 
-	ldbauth "gitea.com/goftp/leveldb-auth"
 	ldbperm "gitea.com/goftp/leveldb-perm"
-	qiniudriver "gitea.com/goftp/qiniu-driver"
 	"github.com/lunny/log"
 	_ "github.com/shurcooL/vfsgen"
 	"github.com/syndtr/goleveldb/leveldb"
-	"goftp.io/server"
+	ldbauth "goftp.io/ftpd/modules/ldbauth"
+	"goftp.io/server/v2"
+	"goftp.io/server/v2/driver/file"
+	minio_driver "goftp.io/server/v2/driver/minio"
 )
 
 var (
@@ -47,7 +48,7 @@ func main() {
 		perm = server.NewSimplePerm("root", "root")
 	}
 
-	var factory server.DriverFactory
+	var driver server.Driver
 	switch driverType {
 	case "file":
 		_, err = os.Lstat(rootPath)
@@ -57,26 +58,30 @@ func main() {
 			fmt.Println(err)
 			return
 		}
-		factory = &server.FileDriverFactory{
-			RootPath: rootPath,
-			Perm:     perm,
+		driver, err = file.NewDriver(rootPath)
+		if err != nil {
+			fmt.Println(err)
+			return
 		}
 	case "qiniu":
-		factory = qiniudriver.NewQiniuDriverFactory(
+		/*factory = qiniudriver.NewQiniuDriverFactory(
 			qiniu.AccessKey,
 			qiniu.SecretKey,
 			qiniu.Bucket,
-		)
+		)*/
 	case "minio":
-		factory = server.NewMinioDriverFactory(
+		driver, err = minio_driver.NewDriver(
 			minio.Endpoint,
 			minio.AccessKey,
 			minio.SecretKey,
 			"",
 			minio.Bucket,
 			minio.UseSSL,
-			perm,
 		)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
 	default:
 		fmt.Println("no driver type input")
 		return
@@ -86,17 +91,18 @@ func main() {
 	if webCfg.Enabled {
 		web.DB = auth
 		web.Perm = perm
-		web.Factory = factory
+		web.Driver = driver
 
 		go web.Web(webCfg.Listen, "static", "templates", admin, pass,
 			webCfg.TLS, webCfg.CertFile, webCfg.KeyFile)
 	}
 
-	opt := &server.ServerOpts{
-		Name:    serv.Name,
-		Factory: factory,
-		Port:    serv.Port,
-		Auth:    auth,
+	opt := &server.Options{
+		Name:   serv.Name,
+		Driver: driver,
+		Port:   serv.Port,
+		Auth:   auth,
+		Perm:   perm,
 	}
 
 	opt.TLS = serv.TLS
@@ -105,7 +111,10 @@ func main() {
 	opt.ExplicitFTPS = opt.TLS
 
 	// start ftp server
-	ftpServer := server.NewServer(opt)
+	ftpServer, err := server.NewServer(opt)
+	if err != nil {
+		log.Fatal("Error creating server:", err)
+	}
 	log.Info("FTP Server", version)
 	err = ftpServer.ListenAndServe()
 	if err != nil {

@@ -6,7 +6,7 @@ import (
 	"path"
 
 	"gitea.com/tango/renders"
-	"goftp.io/server"
+	"goftp.io/server/v2"
 )
 
 func hasPerm(mode os.FileMode, idx int, rOrW string) bool {
@@ -39,12 +39,9 @@ func (c *PermAction) Get() error {
 		parent = "/"
 		p = "/"
 	}
-	driver, err := Factory.NewDriver()
-	if err != nil {
-		return err
-	}
-	var pathinfos []server.FileInfo
-	err = driver.ListDir(p, func(f server.FileInfo) error {
+	var pathinfos []os.FileInfo
+	err = Driver.ListDir(&server.Context{
+		}, p, func(f os.FileInfo) error {
 		if f.Name() != "." {
 			pathinfos = append(pathinfos, f)
 		}
