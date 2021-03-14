@@ -41,3 +41,12 @@ details:
     password: 123456
 
 More features, you can copy config.ini to the ftpd directory and modify it.
+
+And one more, you can ignore the config.ini file and use envs. The env name will 
+be ToUpper(`<section_name>_<item_name>`), i.e.
+
+```
+SERVER_PORT=2222 ./ftpd
+```
+
+Will run a ftpd with ftp port 2222 whatever config.ini has or not.

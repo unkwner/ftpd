@@ -32,6 +32,11 @@ func main() {
 		return
 	}
 
+	if err := readConfigFromEnvs(); err != nil {
+		fmt.Println(err)
+		return
+	}
+
 	db, err := leveldb.OpenFile("./authperm.db", nil)
 	if err != nil {
 		fmt.Println(err)

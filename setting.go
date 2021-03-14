@@ -4,6 +4,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
+	"syscall"
 
 	"github.com/lunny/log"
 	"github.com/unknwon/goconfig"
@@ -123,5 +125,62 @@ func initConfig() error {
 	serv.KeyFile = cfg.MustValue("server", "key_file", "")
 	serv.CertFile = cfg.MustValue("server", "cert_file", "")
 
+	return nil
+}
+
+func getEnv(name string, defaultValue string) string {
+	v, ok := syscall.Getenv(name)
+	if !ok {
+		return defaultValue
+	}
+	return v
+}
+
+func getEnvBool(name string, defaultValue bool) bool {
+	v, ok := syscall.Getenv(name)
+	if !ok {
+		return defaultValue
+	}
+	r, _ := strconv.ParseBool(v)
+	return r
+}
+
+func getEnvInt(name string, defaultValue int) int {
+	v, ok := syscall.Getenv(name)
+	if !ok {
+		return defaultValue
+	}
+	r, _ := strconv.Atoi(v)
+	return r
+}
+
+func readConfigFromEnvs() error {
+	permType = getEnv("PERM_TYPE", permType)
+	driverType = getEnv("DRIVER_TYPE", driverType)
+	rootPath = getEnv("FILE_ROOTPATH", rootPath)
+
+	qiniu.AccessKey = getEnv("QINIU_ACCESSKEY", qiniu.AccessKey)
+	qiniu.SecretKey = getEnv("QINIU_SECRETKEY", qiniu.SecretKey)
+	qiniu.Bucket = getEnv("QINIU_BUCKET", qiniu.Bucket)
+
+	minio.Endpoint = getEnv("MINIO_ENDPOINT", minio.Endpoint)
+	minio.AccessKey = getEnv("MINIO_ACCESSKEY", minio.AccessKey)
+	minio.SecretKey = getEnv("MINIO_SECRETKEY", minio.SecretKey)
+	minio.Bucket = getEnv("MINIO_BUCKET", minio.Bucket)
+	minio.UseSSL = getEnvBool("MINIO_USE_SSL", minio.UseSSL)
+
+	webCfg.Enabled = getEnvBool("WEB_ENABLE", webCfg.Enabled)
+	webCfg.Listen = getEnv("WEB_LISTEN", webCfg.Listen)
+	admin = getEnv("ADMIN_USER", admin)
+	pass = getEnv("ADMIN_PASS", pass)
+	webCfg.TLS = getEnvBool("WEB_TLS", webCfg.TLS)
+	webCfg.CertFile = getEnv("WEB_CERTFILE", webCfg.CertFile)
+	webCfg.KeyFile = getEnv("WEB_KEYFILE", webCfg.KeyFile)
+
+	serv.Name = getEnv("SERVER_NAME", serv.Name)
+	serv.Port = getEnvInt("SERVER_PORT", serv.Port)
+	serv.TLS = getEnvBool("SERVER_TLS", serv.TLS)
+	serv.KeyFile = getEnv("SERVER_KEY_FILE", serv.KeyFile)
+	serv.CertFile = getEnv("SERVER_CERT_FILE", serv.CertFile)
 	return nil
 }

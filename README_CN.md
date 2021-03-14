@@ -33,3 +33,11 @@
     password: 123456
 
 如需要进一步修改，可以拷贝 config.ini 文件到 ftpd 目录下，然后修改其中的配置
+
+同时，你也可以直接使用环境变量来运行 ftpd，环境变量与配置文件样例中对应，形如 ToUpper(`<section_name>_<item_name>`), 比如：
+
+```
+SERVER_PORT=2222 ./ftpd
+```
+
+即使 config.ini 存在，这也将会在 2222 端口运行一个ftp服务器。
