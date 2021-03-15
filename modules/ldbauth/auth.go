@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"goftp.io/ftpd/web"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/util"
+	"goftp.io/ftpd/web"
 	"goftp.io/server/v2"
 )
 
@@ -46,7 +46,10 @@ func (db *LDBAuth) ChgPass(user, pass string) error {
 }
 
 func (db *LDBAuth) UserList(users *[]web.User) error {
-	it := db.DB.NewIterator(&util.Range{[]byte("pass:"), nil}, nil)
+	it := db.DB.NewIterator(&util.Range{
+		Start: []byte("pass:"),
+		Limit: nil,
+	}, nil)
 	defer it.Release()
 	for it.Next() {
 		key := string(it.Key())
@@ -54,15 +57,18 @@ func (db *LDBAuth) UserList(users *[]web.User) error {
 			break
 		}
 		*users = append(*users, web.User{
-			key[5:],
-			string(it.Value()),
+			Name: key[5:],
+			Pass: string(it.Value()),
 		})
 	}
 	return nil
 }
 
 func (db *LDBAuth) GroupList(groups *[]string) error {
-	it := db.DB.NewIterator(&util.Range{[]byte("group:"), nil}, nil)
+	it := db.DB.NewIterator(&util.Range{
+		Start: []byte("group:"),
+		Limit: nil,
+	}, nil)
 	defer it.Release()
 	for it.Next() {
 		key := string(it.Key())
@@ -80,7 +86,10 @@ func (db *LDBAuth) AddGroup(group string) error {
 
 func (db *LDBAuth) DelGroup(group string) error {
 	start := fmt.Sprintf("groupuser:%s:", group)
-	it := db.DB.NewIterator(&util.Range{[]byte(start), nil}, nil)
+	it := db.DB.NewIterator(&util.Range{
+		Start: []byte(start),
+		Limit: nil,
+	}, nil)
 	defer it.Release()
 	keys := make([]string, 0)
 	for it.Next() {
@@ -126,7 +135,10 @@ func (db *LDBAuth) DelUserGroup(user, group string) error {
 
 func (db *LDBAuth) GroupUser(group string, users *[]string) error {
 	prefix := fmt.Sprintf("groupuser:%s:", group)
-	it := db.DB.NewIterator(&util.Range{[]byte(prefix), nil}, nil)
+	it := db.DB.NewIterator(&util.Range{
+		Start: []byte(prefix),
+		Limit: nil,
+	}, nil)
 	defer it.Release()
 	for it.Next() {
 		key := string(it.Key())
