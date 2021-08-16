@@ -23,8 +23,8 @@ LABEL maintainer="xiaolunwen@gmail.com"
 EXPOSE 2121
 EXPOSE 8181
 
-VOLUME ["/app/ftpd/data"]
+VOLUME ["/home/opc/data"]
 
-ENTRYPOINT ["/app/ftpd/ftpd"]
+ENTRYPOINT ["/home/opc/data"]
 
-COPY --from=build-env /ftpd/ftpd /app/ftpd/ftpd
+COPY --from=build-env /ftpd/ftpd /home/opc/data
